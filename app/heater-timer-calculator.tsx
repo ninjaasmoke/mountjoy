@@ -98,12 +98,12 @@ export default function HeaterTimerCalculator() {
 
                     {error && (
                         <>
-                            <h2 className="text-red-500 text-xl font-bold">Can&apos;t go back in time!</h2>
+                            <h2 className="text-red-500 text-xl font-bold">CAN&apos;T GO BACK IN TIME!</h2>
                             <div className="text-red-500 text-sm">{error}</div>
                         </>
                     )}
 
-                    {result && (
+                    {!error && result && (
                         <div className="mt-8 text-center">
                             <h2 className="text-xl font-bold text-black uppercase mb-2">Set Heater Clock To:</h2>
                             <div className="text-6xl font-bold text-black border-2 border-black p-4">{result}</div>
@@ -117,7 +117,7 @@ export default function HeaterTimerCalculator() {
                                 setResult(heaterClockTime)
                             }
                         }}
-                        className="w-full bg-black text-white hover:bg-white hover:text-black transition-colors"
+                        className="w-full bg-black text-white hover:bg-[gray] transition-colors button"
                         disabled={!currentTime || !expectedStartTime}
                     >
                         Calculate

@@ -67,6 +67,10 @@ body {
   }
 }
 
+.button:hover {
+  box-shadow: 4px 4px 0 2px rgba(0, 0, 0, 0.9);
+}
+
 @layer base {
   * {
     @apply border-border;
