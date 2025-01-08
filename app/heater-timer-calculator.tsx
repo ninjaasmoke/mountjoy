@@ -43,9 +43,14 @@ export default function HeaterTimerCalculator() {
     const [currentTime, setCurrentTime] = useState<Date | null>(new Date())
     const [expectedStartTime, setExpectedStartTime] = useState<Date | null>(null)
     const [result, setResult] = useState<string | null>(null)
+    const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
         if (currentTime && expectedStartTime) {
+            if (currentTime > expectedStartTime) {
+                setError('expected start time must be in the future')
+                return
+            }
             const heaterClockTime = calculateHeaterClockTime(currentTime, expectedStartTime)
             setResult(heaterClockTime)
         } else {
@@ -90,6 +95,13 @@ export default function HeaterTimerCalculator() {
                             className="w-full p-2 border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
                         />
                     </div>
+
+                    {error && (
+                        <>
+                            <h2 className="text-red-500 text-xl font-bold">Can&apos;t go back in time!</h2>
+                            <div className="text-red-500 text-sm">{error}</div>
+                        </>
+                    )}
 
                     {result && (
                         <div className="mt-8 text-center">
