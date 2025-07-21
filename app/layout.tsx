@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Lexend_Deca } from "next/font/google";
+import { Funnel_Display } from "next/font/google";
 import "./globals.css";
 
-const appFont = Lexend_Deca({
+const appFont = Funnel_Display({
   variable: "--app-font",
   subsets: ["latin"],
 });
